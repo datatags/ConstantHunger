@@ -1,0 +1,2 @@
+# The food value each player should have. 20 is full (not hungry), and 6 or below will disable sprinting.
+food: 19

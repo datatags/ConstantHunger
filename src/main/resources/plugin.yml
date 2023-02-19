@@ -1,0 +1,4 @@
+name: ConstantHunger
+version: @version@
+api-version: 1.13
+main: me.datatags.constanthunger.ConstantHunger
