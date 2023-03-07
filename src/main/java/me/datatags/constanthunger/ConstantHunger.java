@@ -1,9 +1,12 @@
 package me.datatags.constanthunger;
 
+import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class ConstantHunger extends JavaPlugin implements Listener {
@@ -20,8 +23,13 @@ public class ConstantHunger extends JavaPlugin implements Listener {
         event.getPlayer().setFoodLevel(food);
     }
 
-    @EventHandler
+    @EventHandler(priority = EventPriority.HIGHEST)
     public void onFoodChange(FoodLevelChangeEvent event) {
-        event.setCancelled(true);
+        event.setFoodLevel(19);
+    }
+
+    @EventHandler
+    public void onRespawn(PlayerRespawnEvent event) {
+        getServer().getScheduler().runTaskLater(this, () -> event.getPlayer().setFoodLevel(food), 1);
     }
 }
