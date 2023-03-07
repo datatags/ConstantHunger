@@ -25,7 +25,7 @@ public class ConstantHunger extends JavaPlugin implements Listener {
 
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onFoodChange(FoodLevelChangeEvent event) {
-        event.setFoodLevel(19);
+        event.setFoodLevel(food);
     }
 
     @EventHandler
